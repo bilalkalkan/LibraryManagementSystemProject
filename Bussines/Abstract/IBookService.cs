@@ -2,7 +2,7 @@
 using Core.Utilities.Results;
 using Entities.Concrete;
 
-namespace Bussines.Abstract
+namespace Business.Abstract
 {
     public interface IBookService
     {

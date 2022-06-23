@@ -9,7 +9,7 @@ namespace Entities.Concrete
         public string Name { get; set; }
         public string AuthorName { get; set; }
         public string PublisherName { get; set; }
-        public DateTime DateOfIssue { get; set; }
+        public string DateOfIssue { get; set; }
         public bool BookStatus { get; set; }
     }
 }

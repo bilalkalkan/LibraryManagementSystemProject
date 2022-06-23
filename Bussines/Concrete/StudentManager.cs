@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Business.Constants;
-using Bussines.Abstract;
+using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -38,6 +39,8 @@ namespace Business.Concrete
             return new SuccessDataResult<Student>(_studentDal.Get(s => s.Id == id));
         }
 
+
+        [SecuredOperation("librarian")]
         public IResult Add(Student student)
         {
            _studentDal.Add(student);
@@ -45,14 +48,14 @@ namespace Business.Concrete
 
         }
 
+        [SecuredOperation("librarian")]
         public IResult Update(Student student)
         {
             _studentDal.Update(student);
             return new SuccessResult(Messages.StudentUpdated);
-
-
         }
 
+        [SecuredOperation("librarian")]
         public IResult Delete(Student student)
         {
             _studentDal.Delete(student);

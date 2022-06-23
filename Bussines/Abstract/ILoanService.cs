@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstract
 {
     public interface ILoanService
     {
-        IDataResult<List<Loan>> GetAll();
+        IDataResult<List<LoanDto>> GetAll();
         IDataResult<Loan> GetByBookId(int bookId);
         IDataResult<Loan> GetById(int id);
         IResult AddLoan(Loan loan);

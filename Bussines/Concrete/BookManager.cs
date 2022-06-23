@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Business.Constants;
-using Bussines.Abstract;
+using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -39,6 +40,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Book>(_bookDal.Get(b => b.Id == id));
         }
 
+        [SecuredOperation("librarian")]
         public IResult Add(Book book)
         {
 
@@ -46,6 +48,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BookAdded);
         }
 
+        [SecuredOperation("librarian")]
         public IResult Update(Book book)
         {
             
@@ -53,6 +56,7 @@ namespace Business.Concrete
                 return new SuccessResult(Messages.BookUpdated);
         }
 
+        [SecuredOperation("librarian")]
         public IResult Deleted(Book book)
         {
             _bookDal.Delete(book);

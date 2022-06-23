@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Core.Utilities.Results;
 using Entities.Concrete;
 
-namespace Bussines.Abstract
+namespace Business.Abstract
 {
     public interface IStudentService
     {
